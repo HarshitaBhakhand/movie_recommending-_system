@@ -2,6 +2,9 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import os
+port = os.getenv('PORT', 8501)
+streamlit.run(app, port=port)
 
 def fetch_poster(movie_id):
     response=requests.get('https://api.themoviedb.org/3/movie/{}?api_key=be8e906ce1a0b7081cf67c64c2ebc6d8&language=en-US'.format(movie_id))
